@@ -67,6 +67,10 @@ DSH（`profiles/web/cordis.patch.yml` 追加）：
         failOnStartupError: false
 ```
 
+**作为 DSH 原生插件（带 Web 设置页开关，推荐）**
+
+`ds-plugin/` 提供零构建的宿主插件，在设置页给出「PDF 阅读」开关（运行时启停工具），见 [ds-plugin/README.md](ds-plugin/README.md)。
+
 Claude Desktop（`claude_desktop_config.json`）：见 [examples/claude_desktop_config.json](examples/claude_desktop_config.json)。
 
 ### 典型场景
