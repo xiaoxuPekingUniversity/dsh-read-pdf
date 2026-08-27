@@ -61,6 +61,23 @@
 - 关闭开关 = 卸载工具；整行移除 = 完全消失。零侵入。
 - Python 依赖缺失时，工具会返回错误文本而非拖垮 dsh（子进程失败被捕获）。
 
+## 自测（无需重启 dsh，已全部通过 ✅）
+
+`test.mjs` 用 mock ctx 脱离 dsh 验证「注册 5 工具 → 真实执行 pdf_info/pdf_text/pdf_find → 开关卸载/恢复」。
+
+```powershell
+# 前提：让 Node 能解析 @deepseek-ai/*（一次即可）
+# New-Item -ItemType Junction -Path D:\project\家教\node_modules -Target C:\Users\<你>\.dsh\profiles\node_modules
+
+# 造一个测试 PDF
+python -c "import pymupdf; d=pymupdf.open(); p=d.new_page(); p.insert_text((72,100),'自测', fontname='china-s'); d.save(r'D:\project\家教\tools\ds-plugin\_test.pdf'); d.close()"
+
+# 跑自测
+node D:\project\家教\tools\ds-plugin\test.mjs D:\project\家教\tools\ds-plugin\_test.pdf
+```
+
+预期输出末尾：`全部通过 ✅`。
+
 ## 与 MCP 版的关系
 
 - MCP 版（`mcp__pdf__*`）与本版（`pdf_*`）可共存，但能力重复；
