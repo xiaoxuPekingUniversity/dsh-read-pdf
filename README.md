@@ -1,8 +1,9 @@
-# PDF MCP Reader — 读 PDF 的 MCP 服务器 + 命令行工具
+# dsh-read-pdf — 让 DSH 阅读 PDF 的 MCP 服务器 + 命令行工具
 
 > 一个基于 [Model Context Protocol](https://modelcontextprotocol.io/) 的 PDF 读取服务器：
-> 文字提取、**中文 OCR（扫描版）**、页面渲染、文件搜索，开箱即用。
+> 文字提取、**中文 OCR（扫描版）**、页面渲染、文件搜索、**拖拽收件箱**，开箱即用。
 > 兼容任何 MCP 客户端：DSH、Claude Desktop、Codex、Cursor，或你自己的应用。
+> 仓库：<https://github.com/xiaoxuPekingUniversity/dsh-read-pdf>
 
 [English](#english) · [中文](#中文)
 
