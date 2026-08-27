@@ -29,7 +29,7 @@
 ```yaml
 - insert:
     - id: pdf-reader
-      name: 'D:\project\家教\tools\ds-plugin\index.mjs'
+      name: 'D:/project/家教/tools/ds-plugin/index.mjs'
       config:
         python: python
 ```
