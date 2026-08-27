@@ -1,0 +1,13 @@
+# DSH 注册示例：追加到 C:\Users\<你>\.dsh\profiles\web\cordis.patch.yml
+# （把 command / args 换成你机器上的 python 与脚本绝对路径，重启 dsh web 生效）
+- insert:
+    - id: mcp-pdf
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        transport: stdio
+        serverName: pdf
+        command: 'C:\Path\To\python.exe'
+        args:
+          - 'D:\path\to\mcp_pdf_server.py'
+        failOnStartupError: false
+        toolCallTimeoutMs: 120000

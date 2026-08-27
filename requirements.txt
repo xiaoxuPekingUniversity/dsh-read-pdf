@@ -1,0 +1,4 @@
+pymupdf>=1.24
+mcp>=2.0
+rapidocr-onnxruntime>=1.4
+numpy

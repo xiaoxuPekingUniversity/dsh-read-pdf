@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# 运行时产物（渲染页面的输出目录）
+*_pages/
+_selftest/
+
+# 本地说明
+*.local

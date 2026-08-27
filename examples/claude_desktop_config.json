@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pdf": {
+      "command": "python",
+      "args": ["/absolute/path/to/mcp_pdf_server.py"]
+    }
+  }
+}
