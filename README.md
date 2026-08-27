@@ -22,6 +22,9 @@
 
 命令行版 `pdf_tools.py` 提供同样能力，不依赖 MCP 客户端。
 
+**PDF Drop 收件箱（拖拽上传）**：`pdf_drop_server.py` 是一个零依赖的本地网页服务，
+在浏览器里把 PDF 拖进拖放区即保存到本地文件夹——适合“给 AI 投喂资料”，无需宿主支持附件上传。
+
 ### 安装
 
 ```bash
@@ -38,6 +41,12 @@ python pdf_tools.py text    exam.pdf --pages 1-3
 python pdf_tools.py ocr     scanned.pdf            # 扫描版中文识别
 python pdf_tools.py render  exam.pdf --pages 1-3
 python pdf_tools.py find --dir ~/Downloads "期末"
+```
+
+**PDF Drop 收件箱（拖拽上传）**
+
+```bash
+python pdf_drop_server.py --port 8765   # 浏览器打开 http://127.0.0.1:8765
 ```
 
 **作为 MCP 服务器**
@@ -83,6 +92,8 @@ Claude Desktop（`claude_desktop_config.json`）：见 [examples/claude_desktop_
 | `pdf_find` | Find PDFs in a directory by keyword (newest first) |
 
 A CLI (`pdf_tools.py`) provides the same capabilities without any MCP client.
+`pdf_drop_server.py` adds a zero-dependency local **drag-and-drop inbox** web page
+for feeding PDFs into an AI workspace (no host-side attachment support needed).
 
 ### Install
 
