@@ -20,32 +20,24 @@
 - Python 3 + `pip install pymupdf rapidocr-onnxruntime`（复用同仓库的 `pdf_tools.py`）。
 - 无需 Node 构建、无需改 DSH 源码。
 
-## 启用（二选一，推荐先用 A 验证）
+## 启用（已实测：同盘相对路径 ✅）
 
-### A. 绝对路径加载（插件留在仓库里）
+> ⚠️ Windows 限制：dsh 的 loader 对**非相对路径**直接 `import(name)`，`D:/…` 会被误判成 URL 的 `d:` 协议而失败（`ERR_UNSUPPORTED_ESM_URL_SCHEME: Received protocol 'd:'`）。
+> 因此 **`name` 必须用同盘相对路径**，插件文件放在 profile 目录下（与 `~/.dsh` 同盘）。
 
-编辑 `C:\Users\<你>\.dsh\profiles\web\cordis.patch.yml`，追加：
-
-```yaml
-- insert:
-    - id: pdf-reader
-      name: 'D:/project/家教/tools/ds-plugin/index.mjs'
-      config:
-        python: python
-```
-
-### B. 相对路径加载（把插件放进 profile）
-
-把 `ds-plugin` 文件夹复制到 `C:\Users\<你>\.dsh\profiles\web\plugins\pdf-reader\`，
-然后追加：
+1. 把 `index.mjs` 复制到 `C:\Users\<你>\.dsh\profiles\web\plugins\pdf-reader\index.mjs`；
+2. 编辑 `C:\Users\<你>\.dsh\profiles\web\cordis.patch.yml`，追加：
 
 ```yaml
 - insert:
     - id: pdf-reader
       name: './plugins/pdf-reader/index.mjs'
+      config:
+        python: python
+        pdfTool: '/绝对路径/pdf_tools.py'   # 指向本仓库 tools/pdf_tools.py
 ```
 
-**重启 dsh web** 后生效。
+3. **重启 dsh web** 生效。实测（隔离 DSH_HOME + 相对路径）：启动打印 `dsh web: http://…` 无报错，即插件加载成功。
 
 ## 开关（Web 设置页）
 
